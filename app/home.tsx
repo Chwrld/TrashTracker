@@ -2,13 +2,14 @@ import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { usePathname, useRouter } from "expo-router";
 import React from "react";
 import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 // ── Bottom Navbar ──────────────────────────────────────────────────────────────
 const tabs = [
@@ -32,8 +33,10 @@ const tabs = [
 function BottomNavbar() {
   const router = useRouter();
   const pathname = usePathname();
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={styles.bottomNav}>
+    <View style={[styles.bottomNav, { paddingBottom: insets.bottom || 8 }]}>
       {tabs.map((tab) => {
         const isActive = pathname === tab.route;
         return (
@@ -111,10 +114,12 @@ function ProgressStep({
 
 // ── Home Screen ────────────────────────────────────────────────────────────────
 export default function Home() {
+  const insets = useSafeAreaInsets();
+
   return (
     <View style={styles.container}>
       {/* ── Header ── */}
-      <View style={styles.header}>
+      <View style={[styles.header, { paddingTop: insets.top + 10 }]}>
         <View style={styles.headerTop}>
           <View style={styles.headerBrand}>
             <Image
@@ -293,7 +298,6 @@ const styles = StyleSheet.create({
   // Header
   header: {
     backgroundColor: GREEN,
-    paddingTop: 52,
     paddingBottom: 30,
     paddingHorizontal: 20,
   },
@@ -516,7 +520,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderTopWidth: 1,
     borderTopColor: "#efefef",
-    paddingVertical: 8,
+    paddingTop: 8,
     paddingHorizontal: 4,
     shadowColor: "#000",
     shadowOpacity: 0.06,
