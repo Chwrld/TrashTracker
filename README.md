@@ -48,3 +48,17 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+To run this project successfully, you need the following installed:
+
+Node.js (recommended LTS version)
+Expo CLI (install globally with npm: npm install -g expo-cli)
+All dependencies listed in package.json, which include:
+expo and related Expo SDK packages (e.g., expo-router, expo-constants, expo-status-bar, etc.)
+react and react-native
+@expo/vector-icons
+@react-navigation packages
+react-native-gesture-handler, react-native-reanimated, etc.
+TypeScript and type definitions for development
+ESLint for linting
+After installing Node.js, run npm install in the project directory to install all required packages. Then use npm start or expo start to run the app.
