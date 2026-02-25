@@ -1,16 +1,16 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
-    Image,
-    ImageBackground,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Image,
+  ImageBackground,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 const GREEN = "#11995D";
@@ -142,7 +142,11 @@ export default function Login() {
 
         {/* ── Footer ── */}
         <View style={styles.footer}>
-          <TouchableOpacity>
+          {/* ✅ FIXED: navigates to collector login page */}
+          <TouchableOpacity
+            onPress={() => router.push("/collectorlogin")}
+            activeOpacity={0.7}
+          >
             <Text style={styles.footerText}>
               Are you a garbage keeper?{" "}
               <Text style={styles.footerLink}>Login here</Text>
@@ -163,7 +167,7 @@ const styles = StyleSheet.create({
     paddingBottom: 48,
   },
   heroBgImage: {
-    opacity: 0.22, // faint background image visible behind green
+    opacity: 0.22,
     resizeMode: "cover",
   },
   heroOverlay: {
